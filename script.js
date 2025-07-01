@@ -14,7 +14,7 @@ const perguntas = [
             },
             {
                 texto: "Isso é maravilhoso!",
-                afirmacao: "Quis saber como usar IA no seu dia a dia."
+                afirmacao: "Quis saber como usar IA no seu dia a dia. "
             }
         ]
     },
@@ -22,59 +22,57 @@ const perguntas = [
         enunciado: "Com a descoberta desta tecnologia, chamada Inteligência Artificial, uma professora de tecnologia da escola decidiu fazer uma sequência de aulas sobre esta tecnologia. No fim de uma aula ela pede que você escreva um trabalho sobre o uso de IA em sala de aula. Qual atitude você toma?",
         alternativas: [
             {
-                texto: "Utiliza uma ferramenta de busca na internet que utiliza IA para que ela ajude a encontrar informações relevantes para o trabalho e explique numa linguagem que facilite o entendimento.",
-                afirmacao: "Conseguiu utilizar a IA para buscar informações úteis."
+                texto: "Utiliza uma ferramenta de busca com IA para encontrar informações relevantes.",
+                afirmacao: "Conseguiu utilizar a IA para buscar informações úteis. "
             },
             {
-                texto: "Escreve o trabalho com base nas conversas que teve com colegas, algumas pesquisas na internet e conhecimentos próprios sobre o tema.",
-                afirmacao: "Sentiu mais facilidade em utilizar seus próprios recursos para escrever seu trabalho."
+                texto: "Escreve o trabalho com base em conversas e conhecimentos próprios.",
+                afirmacao: "Sentiu mais facilidade em utilizar seus próprios recursos. "
             }
         ]
     },
     {
-        enunciado: "Após a elaboração do trabalho escrito, a professora realizou um debate entre a turma para entender como foi realizada a pesquisa e escrita. Nessa conversa também foi levantado um ponto muito importante: como a IA impacta o trabalho do futuro. Nesse debate, como você se posiciona?",
+        enunciado: "No debate sobre IA e o futuro do trabalho, como você se posiciona?",
         alternativas: [
             {
-                texto: "Defende a ideia de que a IA pode criar novas oportunidades de emprego e melhorar habilidades humanas.",
-                afirmacao: "Vem impulsionando a inovação na área de IA e luta para abrir novos caminhos profissionais com IA."
+                texto: "Defende que a IA cria novas oportunidades de emprego.",
+                afirmacao: "Vem impulsionando a inovação e criando novos caminhos profissionais com IA. "
             },
             {
-                texto: "Me preocupo com as pessoas que perderão seus empregos para máquinas e defendem a importância de proteger os trabalhadores.",
-                afirmacao: "Sua preocupação com as pessoas motivou a criar um grupo de estudos entre trabalhadores para discutir meios de utilização de IA de forma ética."
+                texto: "Se preocupa com quem pode perder o emprego para máquinas.",
+                afirmacao: "Motivou um grupo de estudos para discutir o uso ético da IA. "
             }
         ]
     },
     {
-        enunciado: "Ao final da discussão, você precisou criar uma imagem no computador que representasse o que pensa sobre IA. E agora?",
+        enunciado: "Você precisa criar uma imagem que represente sua visão sobre a IA. E agora?",
         alternativas: [
             {
-                texto: "Criar uma imagem utilizando uma plataforma de design como o Paint.",
-                afirmacao: "Notou também que muitas pessoas não sabem ainda utilizar as ferramentas tradicionais e decidiu compartilhar seus conhecimentos de design utilizando ferramentas de pintura digital para iniciantes."
+                texto: "Criar com Paint ou outra ferramenta de design tradicional.",
+                afirmacao: "Decidiu compartilhar conhecimentos em design com ferramentas digitais. "
             },
             {
-                texto: "Criar uma imagem utilizando um gerador de imagem de IA.",
-                afirmacao: "Acelerou o processo de criação de trabalhos utilizando geradores de imagem e agora consegue ensinar pessoas que sentem dificuldades em desenhar manualmente como utilizar também!"
+                texto: "Criar com gerador de imagens por IA.",
+                afirmacao: "Agora ensina pessoas a usarem IA para expressar ideias visualmente. "
             }
         ]
     },
     {
-        enunciado: "Você tem um trabalho em grupo de biologia para entregar na semana seguinte, o andamento do trabalho está um pouco atrasado e uma pessoa do seu grupo decidiu fazer com ajuda da IA. O problema é que o trabalho está totalmente igual ao do chat. O que você faz? ",
+        enunciado: "Seu grupo atrasou o trabalho de biologia, e alguém colou tudo do chat. O que faz?",
         alternativas: [
             {
-                texto: "Escrever comandos para o chat é uma forma de contribuir com o trabalho, por isso não é um problema utilizar o texto inteiro.",
-                afirmacao: "Infelizmente passou a utilizar a IA para fazer todas suas tarefas e agora se sente dependente da IA para tudo."
+                texto: "Acha que usar o texto do chat inteiro não é problema.",
+                afirmacao: "Agora depende da IA para todas as tarefas. "
             },
             {
-                texto: "O chat pode ser uma tecnologia muito avançada, mas é preciso manter a atenção pois toda máquina erra, por isso revisar o trabalho e contribuir com as perspectivas pessoais é essencial.",
-                afirmacao: "Percebeu que toda IA reproduz orientações baseadas na empresa que programou e muito do que o chat escrevia não refletia o que pensava e por isso sabe que os textos gerados pela IA devem servir como auxílio e não resultado final. "
+                texto: "Revê o conteúdo e adapta com ideias do grupo.",
+                afirmacao: "Percebeu que a IA deve ser apoio, não o produto final. "
             }
         ]
-    },
+    }
 ];
 
-
 let atual = 0;
-let perguntaAtual;
 let historiaFinal = "";
 
 function mostraPergunta() {
@@ -82,32 +80,46 @@ function mostraPergunta() {
         mostraResultado();
         return;
     }
-    perguntaAtual = perguntas[atual];
+    const perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaAlternativas.textContent = "";
-    mostraAlternativas();
+    caixaAlternativas.innerHTML = "";
+    perguntaAtual.alternativas.forEach(alternativa => {
+        const botao = document.createElement("button");
+        botao.textContent = alternativa.texto;
+        botao.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botao);
+    });
 }
 
-function mostraAlternativas(){
-    for(const alternativa of perguntaAtual.alternativas) {
-        const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
-        caixaAlternativas.appendChild(botaoAlternativas);
-    }
-}
-
-function respostaSelecionada(opcaoSelecionada) {
-    const afirmacoes = opcaoSelecionada.afirmacao;
-    historiaFinal += afirmacoes + " ";
+function respostaSelecionada(opcao) {
+    historiaFinal += opcao.afirmacao;
     atual++;
     mostraPergunta();
 }
 
 function mostraResultado() {
     caixaPerguntas.textContent = "Em 2049...";
-    textoResultado.textContent = historiaFinal;
-    caixaAlternativas.textContent = "";
+    caixaAlternativas.innerHTML = "";
+    textoResultado.textContent = "";
+
+    let i = 0;
+    const intervalo = setInterval(() => {
+        textoResultado.textContent += historiaFinal[i];
+        i++;
+        if (i >= historiaFinal.length) clearInterval(intervalo);
+    }, 25);
+
+    // Botão para reiniciar
+    const botaoReiniciar = document.createElement("button");
+    botaoReiniciar.textContent = "Tentar de novo";
+    botaoReiniciar.addEventListener("click", reiniciar);
+    caixaAlternativas.appendChild(botaoReiniciar);
+}
+
+function reiniciar() {
+    atual = 0;
+    historiaFinal = "";
+    mostraPergunta();
 }
 
 mostraPergunta();
