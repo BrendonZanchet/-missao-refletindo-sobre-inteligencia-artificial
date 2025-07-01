@@ -1,121 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
-
 :root {
-  --cor-fundo: #0c0a19;
-  --cor-principal: #161429;
-  --cor-secundaria: #2d214f;
-  --cor-destaque: #ff2fd0;
-  --cor-texto: #e0c9f5;
-  --neon-glow: 0 0 10px var(--cor-destaque), 0 0 20px var(--cor-destaque), 0 0 40px var(--cor-destaque);
+    --cor-fundo: #0d0d0d;
+    --cor-principal: #1a1a2e;
+    --cor-secundaria: #16213e;
+    --cor-destaque: #ff2fd0;
+    --cor-texto: #e0f7ff;
+    --neon-glow: 0 0 10px var(--cor-destaque), 0 0 20px var(--cor-destaque), 0 0 30px var(--cor-destaque);
 }
 
 body {
-  margin: 0; padding: 0;
-  height: 100vh;
-  background-color: var(--cor-fundo);
-  font-family: 'Orbitron', monospace, sans-serif;
-  color: var(--cor-texto);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Orbitron', sans-serif;
+    overflow: hidden;
+    margin: 0;
 }
 
 .caixa-principal {
-  background: var(--cor-principal);
-  width: 90vw;
-  max-width: 650px;
-  border-radius: 25px;
-  padding: 30px 40px;
-  box-shadow: 0 0 30px var(--cor-destaque);
-  text-align: center;
-  position: relative;
-  z-index: 10;
+    background-color: var(--cor-principal);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 47, 208, 0.3);
+    position: relative;
+    z-index: 1;
 }
 
 h1 {
-  font-size: 2.6rem;
-  margin-bottom: 20px;
-  color: var(--cor-destaque);
-  text-shadow: var(--neon-glow);
+    color: var(--cor-destaque);
+    text-shadow: var(--neon-glow);
 }
 
 button {
-  background-color: var(--cor-secundaria);
-  border: none;
-  border-radius: 15px;
-  color: var(--cor-texto);
-  padding: 15px 25px;
-  margin: 12px 0;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 0 8px var(--cor-destaque);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px var(--cor-destaque);
 }
 
 button:hover {
-  background-color: var(--cor-destaque);
-  color: var(--cor-principal);
-  box-shadow: 0 0 20px var(--cor-destaque);
+    background-color: var(--cor-destaque);
+    color: var(--cor-principal);
+    box-shadow: var(--neon-glow);
 }
 
 .caixa-perguntas,
-.caixa-alternativas,
-.caixa-resultado {
-  margin-top: 15px;
+.caixa-resultado,
+.caixa-alternativas {
+    transition: all 0.3s ease-in-out;
 }
 
 .texto-resultado {
-  white-space: pre-wrap;
-  font-size: 1.1rem;
-  line-height: 1.5;
+    white-space: pre-wrap;
+    margin-top: 20px;
 }
 
-/* Hologramas */
-.holograma-container {
-  position: fixed;
-  width: 250px;
-  height: 500px;
-  top: 50%;
-  transform: translateY(-50%);
-  filter: drop-shadow(0 0 15px #ff69b4aa);
-  animation: flutuar 6s ease-in-out infinite alternate;
-  opacity: 0.2;
-  z-index: 5;
+/* Hologramas animados */
+.holograma {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #ff2fd0 30%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: flutuar 6s infinite ease-in-out alternate,
+        girar 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(10px);
 }
 
-.holograma-esquerda {
-  left: 15px;
-  animation-delay: 0s;
+.holograma.esquerda {
+    top: 10%;
+    left: -80px;
 }
 
-.holograma-direita {
-  right: 15px;
-  animation-delay: 3s;
+.holograma.direita {
+    bottom: 10%;
+    right: -80px;
 }
 
 @keyframes flutuar {
-  0% { transform: translateY(-10%) scale(0.95); }
-  100% { transform: translateY(10%) scale(1.05); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(30px);
+    }
 }
 
-/* Animação ondulada do cabelo */
-.cabelo path {
-  animation: ondular 6s ease-in-out infinite alternate;
-  transform-origin: center bottom;
-}
+@keyframes girar {
+    0% {
+        transform: rotate(0deg);
+    }
 
-.cabelo path:nth-child(odd) {
-  animation-delay: 0s;
-}
-.cabelo path:nth-child(even) {
-  animation-delay: 3s;
-}
-
-@keyframes ondular {
-  0% { transform: rotate(0deg) translateX(0); }
-  50% { transform: rotate(4deg) translateX(5px); }
-  100% { transform: rotate(0deg) translateX(0); }
+    100% {
+        transform: rotate(360deg);
+    }
 }

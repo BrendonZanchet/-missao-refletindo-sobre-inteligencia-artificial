@@ -1,114 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Você decide o futuro da IA - Cyberpunk Anime Hologramas</title>
-<link rel="stylesheet" href="style.css" />
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Você decide o futuro da IA</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
+      rel="stylesheet"
+    />
 </head>
 <body>
+    <!-- Hologramas animados -->
+    <div class="holograma esquerda"></div>
+    <div class="holograma direita"></div>
 
-<!-- HOLOGRAMAS ANIME CORPO INTEIRO -->
+    <div class="caixa-principal">
+        <h1>Você decide o futuro da IA</h1>
+        <div class="caixa-perguntas"></div>
+        <div class="caixa-alternativas"></div>
+        <div class="caixa-resultado">
+            <p class="texto-resultado"></p>
+        </div>
+    </div>
 
-<div class="holograma-container holograma-esquerda" aria-hidden="true" role="presentation">
-  <svg viewBox="0 0 300 600" width="250" height="500" xmlns="http://www.w3.org/2000/svg" class="anime-holograma">
-    <defs>
-      <radialGradient id="grad-rosa1" cx="50%" cy="40%" r="60%">
-        <stop offset="0%" stop-color="#ff69b4" stop-opacity="0.7"/>
-        <stop offset="100%" stop-color="#a50e7d" stop-opacity="0"/>
-      </radialGradient>
-      <filter id="glow1" x="-50%" y="-50%" width="200%" height="200%">
-        <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#ff69b4" flood-opacity="0.8"/>
-      </filter>
-    </defs>
-
-    <!-- Corpo -->
-    <ellipse cx="150" cy="520" rx="90" ry="70" fill="url(#grad-rosa1)" filter="url(#glow1)"/>
-    <rect x="90" y="220" width="120" height="300" rx="60" ry="70" fill="#ff66bb" filter="url(#glow1)"/>
-
-    <!-- Cabeça -->
-    <circle cx="150" cy="140" r="90" fill="#ff7ac0" filter="url(#glow1)" />
-
-    <!-- Rosto simples -->
-    <circle cx="120" cy="140" r="20" fill="#fff"/>
-    <circle cx="180" cy="140" r="20" fill="#fff"/>
-    <circle cx="120" cy="140" r="10" fill="#3c003c"/>
-    <circle cx="180" cy="140" r="10" fill="#3c003c"/>
-    <path d="M110 190 Q150 220 190 190" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
-
-    <!-- Cabelo ondulado animado -->
-    <g class="cabelo">
-      <path d="M55 100 Q110 20 160 95" stroke="#ff99cc" stroke-width="25" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-      <path d="M45 130 Q100 40 170 130" stroke="#ff88bb" stroke-width="25" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-      <path d="M65 75 Q120 5 180 90" stroke="#ff66cc" stroke-width="25" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-    </g>
-
-    <!-- Braços simples -->
-    <rect x="50" y="320" width="35" height="110" rx="20" ry="20" fill="#ff69b4" filter="url(#glow1)" />
-    <rect x="215" y="320" width="35" height="110" rx="20" ry="20" fill="#ff69b4" filter="url(#glow1)" />
-
-    <!-- Pernas simples -->
-    <rect x="90" y="510" width="40" height="90" rx="30" ry="30" fill="#d0347d" filter="url(#glow1)" />
-    <rect x="160" y="510" width="40" height="90" rx="30" ry="30" fill="#d0347d" filter="url(#glow1)" />
-  </svg>
-</div>
-
-<div class="holograma-container holograma-direita" aria-hidden="true" role="presentation">
-  <svg viewBox="0 0 300 600" width="250" height="500" xmlns="http://www.w3.org/2000/svg" class="anime-holograma">
-    <defs>
-      <radialGradient id="grad-rosa2" cx="50%" cy="40%" r="60%">
-        <stop offset="0%" stop-color="#ff69b4" stop-opacity="0.7"/>
-        <stop offset="100%" stop-color="#a50e7d" stop-opacity="0"/>
-      </radialGradient>
-      <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
-        <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#ff69b4" flood-opacity="0.8"/>
-      </filter>
-    </defs>
-
-    <!-- Corpo -->
-    <ellipse cx="150" cy="520" rx="90" ry="70" fill="url(#grad-rosa2)" filter="url(#glow2)"/>
-    <rect x="90" y="220" width="120" height="300" rx="60" ry="70" fill="#ff66bb" filter="url(#glow2)"/>
-
-    <!-- Cabeça -->
-    <circle cx="150" cy="140" r="90" fill="#ff7ac0" filter="url(#glow2)" />
-
-    <!-- Rosto simples -->
-    <circle cx="120" cy="140" r="20" fill="#fff"/>
-    <circle cx="180" cy="140" r="20" fill="#fff"/>
-    <circle cx="120" cy="140" r="10" fill="#3c003c"/>
-    <circle cx="180" cy="140" r="10" fill="#3c003c"/>
-    <path d="M110 190 Q150 220 190 190" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
-
-    <!-- Cabelo ondulado animado -->
-    <g class="cabelo">
-      <path d="M55 100 Q110 20 160 95" stroke="#ff99cc" stroke-width="25" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-      <path d="M45 130 Q100 40 170 130" stroke="#ff88bb" stroke-width="25" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-      <path d="M65 75 Q120 5 180 90" stroke="#ff66cc" stroke-width="25" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-    </g>
-
-    <!-- Braços simples -->
-    <rect x="50" y="320" width="35" height="110" rx="20" ry="20" fill="#ff69b4" filter="url(#glow2)" />
-    <rect x="215" y="320" width="35" height="110" rx="20" ry="20" fill="#ff69b4" filter="url(#glow2)" />
-
-    <!-- Pernas simples -->
-    <rect x="90" y="510" width="40" height="90" rx="30" ry="30" fill="#d0347d" filter="url(#glow2)" />
-    <rect x="160" y="510" width="40" height="90" rx="30" ry="30" fill="#d0347d" filter="url(#glow2)" />
-  </svg>
-</div>
-
-<!-- Caixa principal do quiz -->
-<div class="caixa-principal" role="main" aria-label="Quiz sobre o futuro da IA">
-  <h1>Você decide o futuro da IA</h1>
-  <div class="caixa-perguntas" aria-live="polite" aria-atomic="true"></div>
-  <div class="caixa-alternativas" role="list"></div>
-  <div class="caixa-resultado" aria-live="polite" aria-atomic="true">
-    <p class="texto-resultado"></p>
-  </div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

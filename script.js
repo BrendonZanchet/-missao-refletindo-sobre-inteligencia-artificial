@@ -42,7 +42,8 @@ const perguntas = [
       },
       {
         texto: "Se preocupa com quem pode perder o emprego para máquinas.",
-        afirmacao: "Motivou um grupo de estudos para discutir o uso ético da IA. ",
+        afirmacao:
+          "Motivou um grupo de estudos para discutir o uso ético da IA. ",
       },
     ],
   },
@@ -89,11 +90,10 @@ function mostraPergunta() {
   const perguntaAtual = perguntas[atual];
   caixaPerguntas.textContent = perguntaAtual.enunciado;
   caixaAlternativas.innerHTML = "";
-  perguntaAtual.alternativas.forEach((alt) => {
+  perguntaAtual.alternativas.forEach((alternativa) => {
     const botao = document.createElement("button");
-    botao.textContent = alt.texto;
-    botao.setAttribute("role", "listitem");
-    botao.addEventListener("click", () => respostaSelecionada(alt));
+    botao.textContent = alternativa.texto;
+    botao.addEventListener("click", () => respostaSelecionada(alternativa));
     caixaAlternativas.appendChild(botao);
   });
 }
