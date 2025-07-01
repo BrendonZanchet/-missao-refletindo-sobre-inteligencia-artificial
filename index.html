@@ -1,29 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Você decide o futuro da IA</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
-      rel="stylesheet"
-    />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Você decide o futuro da IA - Cyberpunk</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <!-- Hologramas animados -->
-    <div class="holograma esquerda"></div>
-    <div class="holograma direita"></div>
 
-    <div class="caixa-principal">
-        <h1>Você decide o futuro da IA</h1>
-        <div class="caixa-perguntas"></div>
-        <div class="caixa-alternativas"></div>
-        <div class="caixa-resultado">
-            <p class="texto-resultado"></p>
-        </div>
+  <!-- Hologramas -->
+  <div class="holograma-container holograma-esquerda" aria-hidden="true">
+    <svg width="220" height="320" viewBox="0 0 220 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="110" cy="80" r="70" fill="url(#grad-rosa)" filter="url(#glow)" />
+      <defs>
+        <radialGradient id="grad-rosa" cx="0.5" cy="0.5" r="0.8">
+          <stop offset="0%" stop-color="#ff2fd0" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#a50e7d" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%" >
+          <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#ff2fd0" flood-opacity="0.7"/>
+        </filter>
+      </defs>
+      <circle cx="110" cy="120" r="50" fill="#ff56f0" filter="url(#glow)" />
+      <g class="cabelo" fill="#ff8afc" filter="url(#glow)">
+        <path d="M60,120 Q90,20 130,120" />
+        <path d="M70,130 Q95,40 140,130" />
+        <path d="M50,110 Q90,10 140,110" />
+        <path d="M100,120 Q110,30 160,120" />
+      </g>
+      <circle cx="90" cy="120" r="7" fill="#fff" />
+      <circle cx="130" cy="120" r="7" fill="#fff" />
+      <path d="M80 150 Q110 170 140 150" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" />
+    </svg>
+  </div>
+
+  <div class="holograma-container holograma-direita" aria-hidden="true">
+    <svg width="220" height="320" viewBox="0 0 220 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="110" cy="80" r="70" fill="url(#grad-rosa2)" filter="url(#glow2)" />
+      <defs>
+        <radialGradient id="grad-rosa2" cx="0.5" cy="0.5" r="0.8">
+          <stop offset="0%" stop-color="#ff2fd0" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#a50e7d" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="glow2" x="-20%" y="-20%" width="140%" height="140%" >
+          <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#ff2fd0" flood-opacity="0.7"/>
+        </filter>
+      </defs>
+      <circle cx="110" cy="120" r="50" fill="#ff56f0" filter="url(#glow2)" />
+      <g class="cabelo" fill="#ff8afc" filter="url(#glow2)">
+        <path d="M60,120 Q90,20 130,120" />
+        <path d="M70,130 Q95,40 140,130" />
+        <path d="M50,110 Q90,10 140,110" />
+        <path d="M100,120 Q110,30 160,120" />
+      </g>
+      <circle cx="90" cy="120" r="7" fill="#fff" />
+      <circle cx="130" cy="120" r="7" fill="#fff" />
+      <path d="M80 150 Q110 170 140 150" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" />
+    </svg>
+  </div>
+
+  <!-- Caixa principal do quiz -->
+  <div class="caixa-principal" role="main" aria-label="Quiz sobre o futuro da IA">
+    <h1>Você decide o futuro da IA</h1>
+    <div class="caixa-perguntas" aria-live="polite" aria-atomic="true"></div>
+    <div class="caixa-alternativas" role="list"></div>
+    <div class="caixa-resultado" aria-live="polite" aria-atomic="true">
+      <p class="texto-resultado"></p>
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
