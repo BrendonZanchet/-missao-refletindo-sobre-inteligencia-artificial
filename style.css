@@ -16,6 +16,7 @@ body {
     min-height: 100vh;
     font-family: 'Orbitron', sans-serif;
     overflow: hidden;
+    margin: 0;
 }
 
 .caixa-principal {
@@ -54,7 +55,9 @@ button:hover {
     box-shadow: var(--neon-glow);
 }
 
-.caixa-perguntas, .caixa-resultado, .caixa-alternativas {
+.caixa-perguntas,
+.caixa-resultado,
+.caixa-alternativas {
     transition: all 0.3s ease-in-out;
 }
 
@@ -71,7 +74,8 @@ button:hover {
     background: radial-gradient(circle, #ff2fd0 30%, transparent 70%);
     border-radius: 50%;
     opacity: 0.2;
-    animation: flutuar 6s infinite ease-in-out alternate, girar 20s linear infinite;
+    animation: flutuar 6s infinite ease-in-out alternate,
+        girar 20s linear infinite;
     pointer-events: none;
     z-index: 0;
     filter: blur(10px);
@@ -88,11 +92,21 @@ button:hover {
 }
 
 @keyframes flutuar {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(30px); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(30px);
+    }
 }
 
 @keyframes girar {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
